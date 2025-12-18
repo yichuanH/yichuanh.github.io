@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Yi-Chuan Huang 黃怡川 — Personal Website</title>
+  <meta name="description" content="Yi-Chuan Huang — Ph.D. student at NYCU." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0b0c0f;           /* dark background */
+      --panel:#121319;        /* card bg */
+      --muted:#9aa4b2;        /* muted text */
+      --text:#e7ecf3;         /* primary text */
+      --accent:#8ec5ff;       /* links */
+      --chip:#1b1f2a;         /* pill bg */
+      --ring: rgba(142,197,255,.5);
+      --border: #202433;
+    }
+    @media (prefers-color-scheme: light){
+      :root{ --bg:#f7f9fc; --panel:#ffffff; --muted:#5b6372; --text:#0f1222; --accent:#0a66ff; --chip:#eef4ff; --ring:rgba(10,102,255,.25); --border:#e8edf5; }
+      body{ background-image: radial-gradient(40rem 40rem at 0% 0%, #eaf2ff 0, transparent 50%),
+                                 radial-gradient(40rem 40rem at 100% 0%, #fff1f1 0, transparent 50%);} }
+    *{ box-sizing:border-box }
+    html{ scroll-behavior:smooth }
+    body{ margin:0; font-family: Inter, "Noto Sans TC", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"; color:var(--text); background:var(--bg); }
+    a{ color:var(--accent); text-decoration:none }
+    a:hover{ text-decoration:underline }
+    .container{ max-width:780px; margin:0 auto; padding:0px; }
+    header{ position:sticky; top:0; backdrop-filter: blur(10px); background: color-mix(in oklab, var(--bg) 85%, transparent); border-bottom:1px solid var(--border); z-index:10; }
+    .nav{ display:flex; align-items:center; gap:20px; height:64px }
+    .nav a{ color:var(--muted); font-weight:600 }
+    .nav a.active, .nav a:hover{ color:var(--text) }
+
+    .hero{ display:grid; grid-template-columns: 120px 1fr; gap:80px; align-items:center; padding:30px 0 12px }
+    .avatar{ width:150px; height:150px; border-radius:50%; object-fit:cover; border:0px solid var(--border); box-shadow: 0 0 0 6px var(--panel); }
+    .title{ font-size: clamp(28px, 4vw, 40px); line-height:1.1; margin:0 0 6px; font-weight:600 }
+    .subtitle{ margin:6px 0; color:var(--muted); font-size:15px }
+    .badges{ display:flex; flex-wrap:wrap; gap:10px; margin:12px 0 }
+    .badge{ display:inline-flex; align-items:center; gap:8px; background:var(--chip); border:1px solid var(--border); color:var(--text); padding:8px 12px; border-radius:999px; font-size:13px; }
+    .links{ display:flex; flex-wrap:wrap; gap:10px; margin-top:8px }
+    .btn{ display:inline-block; padding:10px 14px; border-radius:10px; border:1px solid var(--border); background:var(--panel); color:var(--text); font-weight:600 }
+    .btn:hover{ box-shadow:0 0 0 6px var(--ring) }
+
+    section{ margin:48px 0 24px }
+    h2{ margin:0 0 16px; font-size:22px }
+    p{ color:var(--text); line-height:1.7; font-size:16px }
+
+    .grid{ display:grid; gap:16px }
+    @media (min-width: 800px){ .grid.cols-2{ grid-template-columns: 1fr 1fr } }
+
+    .chips{ display:flex; flex-wrap:wrap; gap:10px }
+    .chip{ background:var(--chip); border:1px solid var(--border); color:var(--text); padding:8px 12px; border-radius:999px; font-size:14px }
+
+    .card{ background:var(--panel); border:1px solid var(--border); border-radius:16px; padding:16px }
+    .pub{ display:grid; grid-template-columns: 120px 1fr; gap:14px; align-items:start }
+    .pub img{ width:120px; height:80px; object-fit:cover; border-radius:10px; border:1px solid var(--border) }
+    .pub h3{ margin:0 0 6px; font-size:18px }
+    .pub .meta{ color:var(--muted); font-size:14px; margin-bottom:8px }
+
+    .news ul{ list-style:none; padding:0; margin:0 }
+    .news li{ display:grid; grid-template-columns: 120px 1fr; gap:12px; padding:10px 12px; border-left:2px solid var(--border) }
+    .news li + li{ margin-top:6px }
+    .date{ color:var(--muted); font-weight:600 }
+
+    footer{ margin:48px 0 24px; color:var(--muted); text-align:center; font-size:14px }
+    .kbd{ font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; background:var(--chip); border:1px solid var(--border); padding:.15rem .4rem; border-radius:6px }
+    .highlight {
+    color: #6c9c35; /* 抹茶綠 Matcha Green */
+    font-weight: 200;
+  }
+
+
+    .hero {
+    margin-bottom: 6px; /* Hero 下方間距更小 */
+    }
+    #about {
+      margin-top: 6px; /* About 上方間距更小 */
+    }
+
+        /* 讓 highlight 裡的連結保持抹茶綠但不粗體 */
+    .highlight a {
+      color: #6c9c35;     /* 抹茶綠 */
+      font-weight: normal; /* 不要粗體 */
+      text-decoration: none;
+    }
+
+    .highlight a:hover {
+      text-decoration: underline;
+    }
+
+    /* 若 .highlight 本身為粗體，也可這樣分開處理 */
+    .highlight {
+      color: #6c9c35;
+      font-weight: normal;
+    }
+
+    /* 讓一般的 <a> 保持原本的風格 */
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+
+  </style>
+
+
+</head>
+<body>
+
+
+  <main class="container">
+    <!-- Hero -->
+    <section class="hero">
+      <img class="avatar" src="images/Me.JPG" alt="Avatar" />
+      <div>
+        <h1 class="title">Yi-Chuan Huang <span style="opacity:.8">黃怡川</span></h1>
+        <div class="subtitle">Ph.D. Student · Department of Computer Science </div>
+        <div class="subtitle">National Yang Ming Chiao Tung University (NYCU), Taiwan</div>
+
+        <div class="badges">
+          <span class="badge" title="Email">📧 <a href="mailto:jay@example.com">yichuanh.cs12@nycu.edu.tw</a></span>
+          <a class="badge" href="#resume">📄 CV</a>
+          <a class="badge" href="#" target="_blank" rel="noopener">🔗 LinkedIn</a>
+          <a class="badge" href="#" target="_blank" rel="noopener">👩‍💻 GitHub</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+      <div class="card">
+      <p>
+    I am a third-year Ph.D. student in Computer Science at 
+    <span class="highlight"><a href="https://www.nycu.edu.tw/nycu/en/index" target="_blank" rel="noopener">National Yang Ming Chiao Tung University (NYCU)</a></span>,  
+    advised by <span class="highlight"><a href="https://yulunalexliu.github.io/" target="_blank" rel="noopener">Prof. Yu-Lun Liu</a></span> 
+    at the Computational Photography Lab. My research focused on 3D Computer Vision and Generative Models.
+  </p>
+
+  <p>
+    Outside of work and research, I enjoy cooking🧑‍🍳, caring for animals🐱, and working out🏃.
+  </p>
+</div>
+    </section>
+
+    <!-- Interests -->
+    <section id="interests">
+      <h2>Research Interests</h2>
+      <div class="chips">
+        <span class="chip">Computer Vision</span>
+        <span class="chip">3D Reconstruction</span>
+        <span class="chip">Neural Radiance Fields (NeRF)</span>
+        <span class="chip">3D Gaussian Splatting</span>
+        <span class="chip">Multi-view Diffusion Model</span>
+        <span class="chip">Novel View Synthesis</span>
+        <span class="chip">Art Generation</span>
+        <span class="chip">Object Generation & Editing</span>
+        
+
+      </div>
+    </section>
+
+  <!-- News -->
+<section id="news" class="news">
+  <h2>News</h2>
+  <div class="card">
+    <ul>
+      <li><div class="date">Sep. 2025</div><div><strong>Voxify3D</strong> project page released! 🧸</div></li>
+      <li><div class="date">Jun. 2025</div><div>Served as a <strong>reviewer</strong> for <strong>Pacific Graphics 2025 (PG 2025)</strong>.</div></li>
+      <li><div class="date">Mar. 2025</div><div>Paper accepted to <strong>CVPR 2025</strong>: “AuraFusion360”. 🎉</div></li>
+      <li><div class="date">Sep. 2024</div><div>Awarded <strong>Outstanding Teaching Assistant</strong> for the course <strong>Signal and Processing</strong>. 📶</div></li>
+      <li><div class="date">Jun. 2024</div><div>Passed <strong>Ph.D. Qualification</strong> and officially became a <strong>Ph.D. Candidate </strong>. 🧑‍🎓</div></li>
+      <li><div class="date">Sep. 2023</div><div>Joined the <strong>Computational Photography Lab</strong> at NYCU as a <strong>Ph.D. student</strong>. 📖</div></li>
+    </ul>
+  </div>
+</section>
+
+
+<!-- Publications -->
+<section id="publications">
+  <h2>Publications</h2>
+
+
+  <article class="card pub">
+  <video autoplay muted loop playsinline
+    style="width:120px; height:80px; object-fit:cover; border-radius:10px; border:1px solid var(--border);">
+    <source src="videos/aurafusion360-teaser.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>    <div>
+      <h3>AuraFusion360: Augmented Unseen Region Alignment for Reference-based 360° Unbounded Scene Inpainting</h3>
+      <div class="meta">Chung-Ho Wu*, Yang-Jung Chen*, Ying-Huan Chen, Jie‑Ying Lee, Bo-Hsu Ke, Chun-Wei Tuan Mu, <span class="highlight">Yi-Chuan Huang</span>, Chin-Yang Lin, Min-Hung Chen, Yen-Yu Lin, Yu-Lun Liu (*Equal Contribution) · <strong>CVPR 2025</strong></div>
+      <p>Introduces depth-aware unseen mask generation, Adaptive Guided Depth Diffusion (zero-shot), and SDEdit-based detail enhancement for multi-view coherence.</p>
+      <div class="links">
+        <a class="btn" href="#" target="_blank" rel="noopener">Paper</a>
+        <a class="btn" href="#" target="_blank" rel="noopener">Code</a>
+        <a class="btn" href="https://kkennethwu.github.io/aurafusion360/" target="_blank" rel="noopener">Project Page</a>
+      </div>
+    </div>
+  </article>
+
+</section>
+
+
+
+<!-- Publications -->
+<section id="research">
+  <h2>Research</h2>
+
+
+<article class="card pub">
+  <video autoplay muted loop playsinline
+    style="width:120px; height:80px; object-fit:cover; border-radius:10px; border:1px solid var(--border);">
+    <source src="videos/redpanda_ours.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+  <div>
+    <h3>Voxify3D: From Mesh to Voxel Art with Palette Discretization and Semantic Guidance</h3>
+    <div class="meta"><span class="highlight">Yi-Chuan Huang</span>, Jie-Wen Chen, Chris Chein, Yu-Lun Liu</div>
+    <p>Voxify3D is a differentiable framework that transforms 3D meshes into stylized voxel art by optimizing a voxel grid under six-view pixel art supervision with palette-based color quantization.</p>
+    <div class="links">
+      <a class="btn" href="https://sga-demo2025.github.io/Voxify3D/" target="_blank" rel="noopener">Project Page</a>
+    </div>
+  </div>
+</article>
+
+<article class="card pub">
+  <video autoplay muted loop playsinline
+    style="width:120px; height:80px; object-fit:cover; border-radius:10px; border:1px solid var(--border);">
+    <source src="videos/fov.mov" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+    <div>
+    <h3>FOV-Outpainter: Training with Expanded Views Beats Novel View Generation</h3>
+    <div class="meta"><span class="highlight">Yi-Chuan Huang</span>, Yu-Lun Liu</div>
+    <p>FOV-Outpainter uses zero-shot multi-view diffusion to expand the training field-of-view, achieving better 3D reconstruction and novel view synthesis without increasing the number of input views.</p>
+
+  </div>
+</article>
+
+</section>
+
+
+    <!-- Contact / Resume -->
+    <section id="contact">
+      <h2>Contact</h2>
+      <div class="card">
+        <p>Email: <a href="mailto:jay@example.com">yichuanh.cs12@nycu.edu.tw</a></p>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="year"></span> Yi-Chuan Huang · Last updated Oct 2025 · Built with vanilla HTML/CSS.
+    </footer>
+  </main>
+
+  <script>
+    // Set current year
+    document.getElementById('year').textContent = new Date().getFullYear();
+    // Mark active nav on scroll
+    const sections = [...document.querySelectorAll('main section')];
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        const id = e.target.getAttribute('id');
+        const link = document.querySelector(`header nav a[href="#${id}"]`);
+        if(link){ link.classList.toggle('active', e.isIntersecting && e.intersectionRatio > .4); }
+      });
+    }, { rootMargin: '-40% 0px -55% 0px', threshold:[0, .4, 1] });
+    sections.forEach(s => io.observe(s));
+  </script>
+</body>
+</html>
